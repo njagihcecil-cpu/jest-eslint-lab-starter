@@ -1,4 +1,3 @@
-
 // Utility Functions
 
 /**
@@ -27,7 +26,13 @@ function filterActiveUsers(users) {
  */
 function logAction(action, username) {
     const timestamp = new Date().toISOString();
+    
+    if (!action || !username) {
+        return '';
+    }
     return `User ${username} performed ${action} at ${timestamp}`;
 }
+
+console.log(logAction('login', 'john_doe'));
 
 module.exports = { capitalizeWords, filterActiveUsers, logAction };
